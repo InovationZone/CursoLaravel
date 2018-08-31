@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+//dou use do meu model
+use App\Models\Balance;
 
 class User extends Authenticatable
 {
@@ -26,4 +28,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //hasone - cria relacionamento 1 para 1
+    public function balance(){
+        return $this->hasOne(Balance::class);
+    }
 }

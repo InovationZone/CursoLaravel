@@ -13,8 +13,18 @@
 
 //criando um grupo de rotas que passa pelo auth
 //defino um namespace para nao ficar repetindo
-$this->group(['middleware' => ['auth'], 'namespace' => 'Admin'], function() {
-    $this->get('admin', 'AdminController@index')->name('admin.home');
+//prefix ja implementa os nomes antes da /
+$this->group(['middleware' => ['auth'], 'namespace' => 'Admin' , 'prefix' => 'admin'], function() {
+
+    //rota de recaraga
+    $this->get('balance/deposit', 'BalanceController@deposit')->name('balance.deposit');
+
+    //rota que acessa o saldo
+    $this->get('balance' , 'BalanceController@index')->name('admin.balance');
+
+
+
+    $this->get('/', 'AdminController@index')->name('admin.home');
 
 });
 

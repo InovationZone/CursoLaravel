@@ -110,14 +110,27 @@ return [
     'menu' => [
         'MENU',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
+            'text' => 'Dashboard',
+            'url'  => 'admin',
+            'icon' => 'dashboard',
 
         ],
         [
-            'text'    => 'home',
+            'text'    => 'Financeiro',
             'url'    => 'admin',
-            'icon' => 'home',
+            'icon' => 'money',
+            'submenu' => [
+                [
+                    'text' => 'Saldo',
+                    'url' => 'admin/balance',
+                    'icon' => 'credit-card-alt'
+                ],
+                [
+                    'text' => 'Histórico',
+                    'url' => 'admin/historic',
+                    'icon' => 'history'
+                ]
+            ]
         ]
     ],
     /*
